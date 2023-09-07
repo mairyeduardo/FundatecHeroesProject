@@ -17,6 +17,26 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         observerState(HomeViewState.HideButton)
+
+//        findViewById<button>(R.id.button).setOnClickListener {
+//            val inita =
+//        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     private fun observerState(state: HomeViewState){
