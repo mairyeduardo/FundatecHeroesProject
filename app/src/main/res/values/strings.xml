@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FundatecHeroes</string>
+    <string name="app_login">Login</string>
 </resources>

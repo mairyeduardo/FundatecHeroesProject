@@ -24,6 +24,11 @@
         </activity>
 
         <activity
+            android:name=".home.view.LoginActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".home.view.HomeActivity"
             android:screenOrientation="portrait"
             android:exported="true">
