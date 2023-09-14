@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FundatecHeroes</string>
+    <string name="app_login">Login</string>
+    <string name="app_botao_voltar">Voltar</string>
 </resources>
