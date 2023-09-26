@@ -11,6 +11,8 @@
     <color name="azulFundatec">#006eab</color>
     <color name="fundoHeroVermelho">#ec3f4c</color>
     <color name="fundoHeroBlack">#080b10</color>
+    <color name="fundoHeroBlack2">#363636</color>
     <color name="fundoHeroBranco">#fdfafd</color>
     <color name="fundoHeroDourado">#eba927</color>
+    <color name="fundoHeroVerdeSucesso">#32CD32</color>
 </resources>

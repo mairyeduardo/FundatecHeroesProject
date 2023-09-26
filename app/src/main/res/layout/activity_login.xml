@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fundoHeroBlack"
+    android:background="@drawable/degrade"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
@@ -46,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
         android:text="Novo por aqui?"
         android:textColor="@color/fundoHeroBranco"
         app:layout_constraintStart_toStartOf="@+id/login_senha"
@@ -58,7 +59,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_login"
         android:backgroundTint="@color/azulFundatec"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="90dp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="@id/login_senha"
         app:layout_constraintEnd_toEndOf="@id/login_senha"

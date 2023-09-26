@@ -17,15 +17,23 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         findViewById<TextView>(R.id.usuario_novo).setOnClickListener{
-            val intent = Intent(this@LoginActivity, ProfileActivity::class.java )
-            startActivity(intent)
+            chamarTelaProfile()
         }
 
         findViewById<Button>(R.id.buttonLogin).setOnClickListener {
-            val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-            startActivity(intent)
+            chamarTelaHome()
         }
-
     }
+
+    private fun chamarTelaHome() {
+        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun chamarTelaProfile() {
+        val intent = Intent(this@LoginActivity, ProfileActivity::class.java )
+        startActivity(intent)
+    }
+
 }
 
