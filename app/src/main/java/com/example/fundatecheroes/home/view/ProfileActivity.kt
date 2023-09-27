@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.fundatecheroes.R
@@ -12,17 +13,34 @@ import com.google.android.material.snackbar.Snackbar
 
 class ProfileActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         getSupportActionBar()?.hide()
         setContentView(R.layout.activity_profile)
 
-        findViewById<Button>(R.id.buttonCriarConta).setOnClickListener() {
-            chamarMensagemSucesso()
+        var editTextN1 = findViewById<EditText>(R.id.onboardingNome);
+        var edittextN2 = findViewById<EditText>(R.id.onboardingEmail);
+        var edittextN3 = findViewById<EditText>(R.id.onboardingSenha);
 
+        findViewById<Button>(R.id.buttonCriarConta).setOnClickListener() {
+            verificarVazio(editTextN1, edittextN2, edittextN3)
         }
     }
 
+    private fun verificarVazio(editText: EditText, editText2: EditText, editText3: EditText) {
+
+        editText.text.toString().isEmpty()
+        editText2.text.toString().isEmpty()
+        editText3.text.toString().isEmpty()
+
+        if(editText.text.toString().isEmpty() || editText2.text.toString().isEmpty() || editText3.text.toString().isEmpty()){
+            chamarMensagemErro()
+        } else {
+            chamarMensagemSucesso()
+        }
+    }
 
     private fun chamarTelaHome() {
         val intent = Intent(this@ProfileActivity, HomeActivity::class.java)
