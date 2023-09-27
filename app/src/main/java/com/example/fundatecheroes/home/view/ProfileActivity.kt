@@ -29,15 +29,21 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun validacaoPreenchimento(editText: EditText, editText2: EditText, editText3: EditText) {
+    private fun validacaoPreenchimento(
+        editText: EditText,
+        editText2: EditText,
+        editText3: EditText
+    ) {
 
-        if(editText.text.toString().isEmpty() || editText2.text.toString().isEmpty() || editText3.text.toString().isEmpty()){
+        if (editText.text.toString().isEmpty() || editText2.text.toString()
+                .isEmpty() || editText3.text.toString().isEmpty()
+        ) {
             chamarMensagemErro()
-        }
-        else if (editText2.text.toString().contains("@") && editText2.text.toString().contains(".")){
+        } else if (editText2.text.toString().contains("@") && editText2.text.toString()
+                .contains(".com")
+        ) {
             chamarMensagemSucesso()
-        }
-        else {
+        } else {
             chamarMensagemErro()
         }
     }
@@ -64,8 +70,8 @@ class ProfileActivity : AppCompatActivity() {
             .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVerdeSucesso))
             .show()
 
-            val handle = Handler()
-            handle.postDelayed({ chamarTelaHome() }, 3000)
+        val handle = Handler()
+        handle.postDelayed({ chamarTelaHome() }, 3000)
     }
 
 
@@ -86,6 +92,4 @@ class ProfileActivity : AppCompatActivity() {
             .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
             .show()
     }
-
-
 }
