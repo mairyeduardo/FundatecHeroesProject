@@ -1,10 +1,14 @@
-package com.example.fundatecheroes.home.view
+package com.example.fundatecheroes.splash.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fundatecheroes.R
+import com.example.fundatecheroes.login.view.LoginActivity
+
+private const val DELAY_TELA = 3000L
 
 class SplashActivity : AppCompatActivity() {
 
@@ -12,9 +16,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         getSupportActionBar()?.hide()
-        val handle = Handler()
-        handle.postDelayed({ fazerLogin() }, 3000)
-
+        Handler(Looper.getMainLooper()).postDelayed({ fazerLogin() }, DELAY_TELA)
     }
 
     private fun fazerLogin() {

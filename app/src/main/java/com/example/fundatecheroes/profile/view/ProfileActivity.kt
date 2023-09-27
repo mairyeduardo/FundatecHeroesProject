@@ -1,4 +1,4 @@
-package com.example.fundatecheroes.home.view
+package com.example.fundatecheroes.profile.view
 
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -9,6 +9,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.fundatecheroes.R
+import com.example.fundatecheroes.home.view.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 
 class ProfileActivity : AppCompatActivity() {
