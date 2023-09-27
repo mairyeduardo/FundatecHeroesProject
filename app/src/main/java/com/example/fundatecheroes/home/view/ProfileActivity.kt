@@ -25,20 +25,20 @@ class ProfileActivity : AppCompatActivity() {
         var edittextN3 = findViewById<EditText>(R.id.onboardingSenha);
 
         findViewById<Button>(R.id.buttonCriarConta).setOnClickListener() {
-            verificarVazio(editTextN1, edittextN2, edittextN3)
+            validacaoPreenchimento(editTextN1, edittextN2, edittextN3)
         }
     }
 
-    private fun verificarVazio(editText: EditText, editText2: EditText, editText3: EditText) {
-
-        editText.text.toString().isEmpty()
-        editText2.text.toString().isEmpty()
-        editText3.text.toString().isEmpty()
+    private fun validacaoPreenchimento(editText: EditText, editText2: EditText, editText3: EditText) {
 
         if(editText.text.toString().isEmpty() || editText2.text.toString().isEmpty() || editText3.text.toString().isEmpty()){
             chamarMensagemErro()
-        } else {
+        }
+        else if (editText2.text.toString().contains("@") && editText2.text.toString().contains(".")){
             chamarMensagemSucesso()
+        }
+        else {
+            chamarMensagemErro()
         }
     }
 
