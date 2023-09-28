@@ -2,7 +2,85 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/degrade">
 
+
+    <ImageView
+        android:id="@+id/splash"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/onboardingNome"
+        android:src="@drawable/mileshero"
+        />
+
+    <EditText
+        android:id="@+id/onboardingNome"
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:inputType="text"
+        android:hint="@string/app_campo_nomeUsuario"
+        android:textColor="@color/fundoHeroBranco"
+        android:textColorHint="@color/fundoHeroBranco"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/onboardingEmail"
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:inputType="textEmailAddress"
+        android:hint="@string/app_campo_email"
+        android:textColor="@color/fundoHeroBranco"
+        android:textColorHint="@color/fundoHeroBranco"
+        app:layout_constraintEnd_toEndOf="@+id/onboardingNome"
+        app:layout_constraintStart_toStartOf="@+id/onboardingNome"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingNome"
+        />
+
+    <EditText
+        android:id="@+id/onboardingSenha"
+        android:layout_height="48dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:inputType="textPassword"
+        android:hint="@string/app_campo_senha"
+        android:textColor="@color/fundoHeroBranco"
+        android:textColorHint="@color/fundoHeroBranco"
+        app:layout_constraintEnd_toEndOf="@+id/onboardingEmail"
+        app:layout_constraintStart_toStartOf="@+id/onboardingEmail"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingEmail"
+        />
+
+    <Button
+        android:id="@+id/buttonCriarConta"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_botao_onboarding"
+        android:backgroundTint="@color/fundoHeroVermelho"
+        android:layout_marginTop="50dp"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@id/onboardingSenha"
+        app:layout_constraintEnd_toEndOf="@id/onboardingSenha"
+        app:layout_constraintTop_toBottomOf="@+id/onboardingSenha"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
