@@ -4,30 +4,35 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.fundatecheroes.R
+import com.example.fundatecheroes.databinding.ActivityLoginBinding
+import com.example.fundatecheroes.databinding.ActivityProfileBinding
 import com.example.fundatecheroes.home.view.HomeActivity
 import com.google.android.material.snackbar.Snackbar
 
 class ProfileActivity : AppCompatActivity() {
 
-
+    private lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+
         getSupportActionBar()?.hide()
-        setContentView(R.layout.activity_profile)
+        setContentView(binding.root)
 
-        var editTextN1 = findViewById<EditText>(R.id.onboardingNome);
-        var edittextN2 = findViewById<EditText>(R.id.onboardingEmail);
-        var edittextN3 = findViewById<EditText>(R.id.onboardingSenha);
+        val editTextN1 = binding.onboardingNome
+        val edittextN2 = binding.onboardingEmail
+        val edittextN3 = binding.onboardingSenha
 
-        findViewById<Button>(R.id.buttonCriarConta).setOnClickListener() {
+        binding.buttonCriarConta.setOnClickListener {
             validacaoPreenchimento(editTextN1, edittextN2, edittextN3)
         }
+
     }
 
     private fun validacaoPreenchimento(
@@ -56,8 +61,8 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun chamarMensagemSucesso() {
         Snackbar.make(
-            findViewById(android.R.id.content),
-            R.string.app_sucessoCriacao,
+            binding.root,
+            R.string.app_mensagem_sucessoCriacao,
             Snackbar.LENGTH_SHORT
         )
             .setActionTextColor(
@@ -78,8 +83,8 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun chamarMensagemErro() {
         Snackbar.make(
-            findViewById(android.R.id.content),
-            R.string.app_erroCriacao,
+            binding.root,
+            R.string.app_mensagem_erroCriacao,
             Snackbar.LENGTH_SHORT
         )
             .setActionTextColor(

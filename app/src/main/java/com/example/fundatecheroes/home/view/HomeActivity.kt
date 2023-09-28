@@ -18,9 +18,6 @@ class HomeActivity : AppCompatActivity() {
 
         observerState(HomeViewState.HideButton)
 
-//        findViewById<button>(R.id.button).setOnClickListener {
-//            val inita =
-//        }
     }
 
     override fun onStart() {
