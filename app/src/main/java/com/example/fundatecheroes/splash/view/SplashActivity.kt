@@ -4,9 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fundatecheroes.R
 import com.example.fundatecheroes.databinding.ActivitySplashBinding
 import com.example.fundatecheroes.login.view.LoginActivity
 
