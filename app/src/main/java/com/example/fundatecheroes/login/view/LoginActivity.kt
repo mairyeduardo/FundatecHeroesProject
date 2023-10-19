@@ -13,7 +13,7 @@ import com.example.fundatecheroes.profile.view.ProfileActivity
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private val viewModel: LoginViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,15 +35,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun chamarTelaHome() {
+        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun configNovoPorAqui(){
         binding.usuarioNovo.setOnClickListener{
             chamarTelaProfile()
         }
-    }
-
-    private fun chamarTelaHome() {
-        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-        startActivity(intent)
     }
 
     private fun chamarTelaProfile() {
