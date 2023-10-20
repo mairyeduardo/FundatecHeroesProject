@@ -22,7 +22,6 @@ class ProfileViewModel: ViewModel() {
         editText2: String,
         editText3: String
     ) {
-
         if (editText.isEmpty() || editText2.isEmpty() || editText3.isEmpty()) {
             viewState.value = ProfileViewState.ShowEmailPasswordError
         } else if (editText2.contains("@") && editText2.contains(".com")

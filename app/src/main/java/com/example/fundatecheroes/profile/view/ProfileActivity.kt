@@ -29,12 +29,12 @@ class ProfileActivity : AppCompatActivity() {
         binding.buttonCriarConta.setOnClickListener {
             profileViewModel.validacaoPreenchimento(
                 binding.onboardingNome.text.toString(),
-                binding.onboardingEmail.text.toString(), binding.onboardingSenha.text.toString()
+                binding.onboardingEmail.text.toString(),
+                binding.onboardingSenha.text.toString()
             )
         }
         profileViewModel.state.observe(this) {
             when (it) {
-
                 ProfileViewState.ShowEmailError -> chamarMensagemErro()
                 ProfileViewState.ShowHomeScreen -> chamarTelaHome()
                 ProfileViewState.ShowEmailPasswordError -> chamarMensagemErro()
