@@ -3,6 +3,7 @@
     <string name="app_botao_login">Login</string>
     <string name="app_botao_voltar">Voltar</string>
     <string name="app_botao_onboarding">Criar Conta</string>
+    <string name="app_criar_personagem">Criar Personagem</string>
 
     <string name="app_mensagem_sucessoCriacao">Conta criada com sucesso!</string>
     <string name="app_mensagem_erroCriacao">Erro ao cadastrar, insira dados válidos</string>
@@ -12,6 +13,9 @@
     <string name="app_campo_email">E-mail:</string>
     <string name="app_campo_senha">Senha:</string>
     <string name="app_campo_nomeUsuario">Nome do usuario:</string>
+    <string name="app_campo_idade">Idade:</string>
+    <string name="app_campo_descricao">Descrição:</string>
+    <string name="app_campo_nomePersonagem">Nome do Personagem:</string>
 
     <string name="app_texto_novoUsuario">Novo por aqui?</string>
 </resources>
