@@ -7,20 +7,21 @@
 
     <ImageView
         android:id="@+id/splash"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/editText_campo_nome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/perso"
+        android:src="@drawable/herois2"
         />
 
     <EditText
         android:id="@+id/editText_campo_nome"
         android:hint="@string/app_campo_nomePersonagem"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,37 +31,53 @@
     <EditText
         android:id="@+id/editText_campo_descricao"
         android:hint="@string/app_campo_descricao"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/editText_campo_nome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/editText_campo_nome"
+        app:layout_constraintEnd_toEndOf="@id/editText_campo_nome"
         />
 
     <EditText
         android:id="@+id/editText_campo_idade"
         android:hint="@string/app_campo_idade"
-        android:layout_width="100dp"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/editText_campo_descricao"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/editText_campo_descricao"
+        app:layout_constraintEnd_toStartOf="@id/pickTime"
+        />
+
+    <Button
+        android:id="@+id/pickTime"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:text="Data"
+        android:textColor="@color/fundoHeroBlack"
+        app:layout_constraintEnd_toEndOf="@id/editText_campo_descricao"
+        app:layout_constraintTop_toBottomOf="@id/editText_campo_descricao"
+        app:layout_constraintStart_toEndOf="@id/editText_campo_idade"
         />
 
 
     <Spinner
-        android:id="@+id/_spinner_tipo_personagem"
+        android:id="@+id/spinner_tipo_personagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/editText_campo_descricao"
         app:layout_constraintTop_toBottomOf="@id/editText_campo_idade"
+        app:layout_constraintEnd_toStartOf="@id/spinner_universo_personagem"
         />
 
     <Spinner
         android:id="@+id/spinner_universo_personagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText_campo_idade"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/editText_campo_descricao"
+        app:layout_constraintTop_toBottomOf="@id/pickTime"
+        app:layout_constraintStart_toEndOf="@id/spinner_tipo_personagem"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
