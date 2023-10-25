@@ -4,6 +4,7 @@
     <string name="app_botao_voltar">Voltar</string>
     <string name="app_botao_onboarding">Criar Conta</string>
     <string name="app_criar_personagem">Criar Personagem</string>
+    <string name="app_adicionar_novo_personagem">Adicionar Personagem</string>
 
     <string name="app_mensagem_sucessoCriacao">Conta criada com sucesso!</string>
     <string name="app_mensagem_erroCriacao">Erro ao cadastrar, insira dados válidos</string>

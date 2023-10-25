@@ -31,8 +31,6 @@ class LoginActivity : AppCompatActivity() {
         configButtonLogin()
         configNovoPorAqui()
 
-    //  Ajustar, está errado;
-    //        viewModel.validarInputs(binding.inputLoginEmail.toString(), binding.inputLoginSenha.toString())
     }
 
     private fun configButtonLogin() {

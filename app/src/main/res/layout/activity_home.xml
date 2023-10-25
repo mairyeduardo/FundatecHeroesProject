@@ -17,6 +17,19 @@
         tools:listitem="@layout/character_list_item"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_button_adicionar_novo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/iconemais"
+        android:contentDescription="@string/app_adicionar_novo_personagem"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/fundoHeroVermelho"
+        />
+
     <Button
         android:id="@+id/bt_test"
         android:layout_width="match_parent"

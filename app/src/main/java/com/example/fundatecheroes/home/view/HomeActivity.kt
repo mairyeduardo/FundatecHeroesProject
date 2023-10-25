@@ -1,8 +1,10 @@
 package com.example.fundatecheroes.home.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.fundatecheroes.R
+import com.example.fundatecheroes.character.view.CharacterActivity
 import com.example.fundatecheroes.databinding.ActivityHomeBinding
 import com.example.fundatecheroes.home.domain.CharacterModel
 
@@ -19,6 +21,10 @@ class HomeActivity : AppCompatActivity() {
         setTheme(R.style.Theme_FundatecHeroes)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.floatingButtonAdicionarNovo.setOnClickListener{
+            val intent = Intent(this@HomeActivity, CharacterActivity::class.java )
+        }
 
         binding.rvList.adapter = adapter
         adapter.addList(
