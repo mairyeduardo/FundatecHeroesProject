@@ -7,27 +7,58 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.fundatecheroes.R
 import com.example.fundatecheroes.databinding.ActivityProfileBinding
+import com.example.fundatecheroes.login.domain.LoginUseCase
 import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 
 class ProfileViewModel: ViewModel() {
+
+    private val useCase by lazy {
+        LoginUseCase()
+    }
 
     private val viewState: MutableLiveData<ProfileViewState> = MutableLiveData()
     val state: LiveData<ProfileViewState> = viewState
 
     fun validacaoPreenchimento(
-        editText: String,
-        editText2: String,
-        editText3: String
+        name: String,
+        email: String,
+        password: String
     ) {
-        if (editText.isEmpty() || editText2.isEmpty() || editText3.isEmpty()) {
-            viewState.value = ProfileViewState.ShowEmailPasswordError
-        } else if (editText2.contains("@") && editText2.contains(".com")
+        if (name.isNullOrBlank() && email.isNullOrBlank() && password.isNullOrBlank()) {
+            viewState.value = ProfileViewState.ShowNameEmailPasswordError
+            return
+        }
+        else if (name.isNullOrBlank()){
+            viewState.value = ProfileViewState.ShowNameError
+            return
+        }
+        else if (email.isNullOrBlank()) {
+            viewState.value = ProfileViewState.ShowEmailError
+            return
+        }
+        else if (password.isNullOrBlank()) {
+            viewState.value = ProfileViewState.ShowPasswordError
+            return
+        }
+        else if (email.contains("@") && email.contains(".com")
         ) {
-            viewState.value = ProfileViewState.ShowHomeScreen
-        } else {
+           viewModelScope.launch {
+               val isSuccess = useCase.createUser(
+                name = name,
+                email = email,
+                password = password,
+            )
+               if (isSuccess) {
+                    viewState.value = ProfileViewState.ShowHomeScreen
+               }
+            }
+        }
+        else {
             viewState.value = ProfileViewState.ShowEmailError
         }
     }

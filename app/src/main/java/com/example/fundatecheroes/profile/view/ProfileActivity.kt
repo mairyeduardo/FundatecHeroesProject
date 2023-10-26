@@ -35,9 +35,12 @@ class ProfileActivity : AppCompatActivity() {
         }
         profileViewModel.state.observe(this) {
             when (it) {
-                ProfileViewState.ShowEmailError -> chamarMensagemErro()
+                ProfileViewState.ShowNameError -> chamarMensagemErroNome()
+                ProfileViewState.ShowEmailError -> chamarMensagemErroEmail()
+                ProfileViewState.ShowPasswordError -> chamarMensagemErroPassword()
                 ProfileViewState.ShowHomeScreen -> chamarTelaHome()
-                ProfileViewState.ShowEmailPasswordError -> chamarMensagemErro()
+                ProfileViewState.ShowNameEmailPasswordError -> chamarMensagemErro()
+
             }
         }
 
@@ -74,7 +77,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun chamarMensagemErro() {
         Snackbar.make(
             binding.root,
-            R.string.app_mensagem_erroCriacao,
+            R.string.app_mensagem_erroGeralCriacao,
             Snackbar.LENGTH_SHORT
         )
             .setActionTextColor(
@@ -88,4 +91,58 @@ class ProfileActivity : AppCompatActivity() {
             .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
             .show()
     }
+    private fun chamarMensagemErroNome() {
+        Snackbar.make(
+            binding.root,
+            R.string.app_mensagem_erroNomeOnboarding,
+            Snackbar.LENGTH_SHORT
+        )
+            .setActionTextColor(
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            )
+            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
+            .show()
+    }
+
+    private fun chamarMensagemErroEmail() {
+        Snackbar.make(
+            binding.root,
+            R.string.app_mensagem_erroEmailOnboarding,
+            Snackbar.LENGTH_SHORT
+        )
+            .setActionTextColor(
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            )
+            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
+            .show()
+    }
+
+    private fun chamarMensagemErroPassword() {
+        Snackbar.make(
+            binding.root,
+            R.string.app_mensagem_erroPasswordOnboarding,
+            Snackbar.LENGTH_SHORT
+        )
+            .setActionTextColor(
+                ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        this,
+                        R.color.white
+                    )
+                )
+            )
+            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
+            .show()
+    }
+
 }
