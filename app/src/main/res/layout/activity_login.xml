@@ -31,13 +31,12 @@
     <EditText
         android:id="@+id/login_email"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="70dp"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:inputType="textEmailAddress"
+        android:layout_marginHorizontal="70dp"
         android:hint="@string/app_campo_email"
+        android:inputType="textEmailAddress"
         android:textColor="@color/fundoHeroBranco"
-
+        android:textSize="20sp"
        />
     </com.google.android.material.textfield.TextInputLayout>
 

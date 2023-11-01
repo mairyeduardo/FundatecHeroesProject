@@ -3,13 +3,34 @@
     <string name="app_botao_login">Login</string>
     <string name="app_botao_voltar">Voltar</string>
     <string name="app_botao_onboarding">Criar Conta</string>
+    <string name="app_criar_personagem">Criar Personagem</string>
+    <string name="app_adicionar_novo_personagem">Adicionar Personagem</string>
 
     <string name="app_mensagem_sucessoCriacao">Conta criada com sucesso!</string>
-    <string name="app_mensagem_erroCriacao">Erro ao cadastrar, insira dados válidos</string>
+    <string name="app_mensagem_erroGeralCriacao">Erro ao cadastrar, campos vazios</string>
+    <string name="app_mensagem_erroNomeOnboarding">Erro ao cadastrar, insira um nome válido</string>
+    <string name="app_mensagem_erroEmailOnboarding">Erro ao cadastrar, insira um email válido</string>
+    <string name="app_mensagem_erroPasswordOnboarding">Erro ao cadastrar, insira uma senha válida</string>
+    <string name="app_mensagem_sucessoLogin">Login realizado com sucesso!</string>
+    <string name="app_mensagem_erroLogin">Erro ao logar, insira dados válidos</string>
 
     <string name="app_campo_email">E-mail:</string>
     <string name="app_campo_senha">Senha:</string>
     <string name="app_campo_nomeUsuario">Nome do usuario:</string>
+    <string name="app_campo_idade">Idade:</string>
+    <string name="app_campo_descricao">Descrição:</string>
+    <string name="app_campo_nomePersonagem">Nome do Personagem:</string>
 
     <string name="app_texto_novoUsuario">Novo por aqui?</string>
+
+    <string-array name="tipo_personagem">
+        <item>Herói</item>
+        <item>Vilão</item>
+    </string-array>
+
+    <string-array name="universo_personagem">
+        <item>DC</item>
+        <item>Marvel</item>
+    </string-array>
+
 </resources>

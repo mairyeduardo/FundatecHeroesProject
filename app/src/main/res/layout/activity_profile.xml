@@ -7,67 +7,86 @@
 
 
     <ImageView
-        android:id="@+id/splash"
+        android:id="@+id/imageview_profile"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/onboardingNome"
+        app:layout_constraintBottom_toTopOf="@id/input_onboardingNome"
         android:src="@drawable/mileshero"
         />
 
-
-
-    <EditText
-        android:id="@+id/onboardingNome"
-        android:layout_height="48dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_onboardingNome"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="70dp"
-        android:layout_marginTop="40dp"
-        android:textSize="20sp"
-        android:inputType="text"
-        android:hint="@string/app_campo_nomeUsuario"
-        android:textColor="@color/fundoHeroBranco"
-        android:textColorHint="@color/fundoHeroBranco"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-    <EditText
-        android:id="@+id/onboardingEmail"
-        android:layout_height="48dp"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="70dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:inputType="textEmailAddress"
-        android:hint="@string/app_campo_email"
-        android:textColor="@color/fundoHeroBranco"
         android:textColorHint="@color/fundoHeroBranco"
-        app:layout_constraintEnd_toEndOf="@+id/onboardingNome"
-        app:layout_constraintStart_toStartOf="@+id/onboardingNome"
-        app:layout_constraintTop_toBottomOf="@+id/onboardingNome"
-        />
+        app:boxBackgroundColor="@color/fundoHeroBlack2"
+        >
+        <EditText
+            android:id="@+id/onboardingNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="70dp"
+            android:hint="@string/app_campo_nomeUsuario"
+            android:inputType="text"
+            android:textColor="@color/fundoHeroBranco"
+            android:textSize="20sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/onboardingSenha"
-        android:layout_height="48dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_onboardingEmail"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="70dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:inputType="textPassword"
-        android:hint="@string/app_campo_senha"
-        android:textColor="@color/fundoHeroBranco"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_onboardingNome"
+        app:layout_constraintStart_toStartOf="@+id/input_onboardingNome"
+        app:layout_constraintTop_toBottomOf="@+id/input_onboardingNome"
         android:textColorHint="@color/fundoHeroBranco"
-        app:layout_constraintEnd_toEndOf="@+id/onboardingEmail"
-        app:layout_constraintStart_toStartOf="@+id/onboardingEmail"
-        app:layout_constraintTop_toBottomOf="@+id/onboardingEmail"
+        app:boxBackgroundColor="@color/fundoHeroBlack2"
+        >
+        <EditText
+            android:id="@+id/onboardingEmail"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="70dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:inputType="textEmailAddress"
+            android:hint="@string/app_campo_email"
+            android:textColor="@color/fundoHeroBranco"
+
         />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_onboardingSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_onboardingEmail"
+        app:layout_constraintStart_toStartOf="@+id/input_onboardingEmail"
+        app:layout_constraintTop_toBottomOf="@+id/input_onboardingEmail"
+        android:textColorHint="@color/fundoHeroBranco"
+        app:boxBackgroundColor="@color/fundoHeroBlack2"
+        >
+        <EditText
+            android:id="@+id/onboardingSenha"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="70dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:inputType="textPassword"
+            android:hint="@string/app_campo_senha"
+            android:textColor="@color/fundoHeroBranco"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/buttonCriarConta"
@@ -79,9 +98,9 @@
         android:layout_marginTop="50dp"
         android:textSize="15sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@id/onboardingSenha"
-        app:layout_constraintEnd_toEndOf="@id/onboardingSenha"
-        app:layout_constraintTop_toBottomOf="@+id/onboardingSenha"
+        app:layout_constraintStart_toStartOf="@id/input_onboardingSenha"
+        app:layout_constraintEnd_toEndOf="@id/input_onboardingSenha"
+        app:layout_constraintTop_toBottomOf="@+id/input_onboardingSenha"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
