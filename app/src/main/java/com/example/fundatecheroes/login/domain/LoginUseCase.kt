@@ -18,4 +18,14 @@ class LoginUseCase {
             password = password,
         )
     }
+
+    suspend fun verificarUser(
+        password: String,
+        email: String,
+    ): Boolean {
+        return repository.verificarUser(
+            password = password,
+            email = email
+        )
+    }
 }

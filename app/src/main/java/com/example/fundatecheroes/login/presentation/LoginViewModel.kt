@@ -4,9 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.fundatecheroes.login.domain.LoginUseCase
 import com.example.fundatecheroes.login.presentation.model.LoginViewState
+import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
+import kotlinx.coroutines.launch
 
 class LoginViewModel: ViewModel() {
+
+    private val useCase by lazy {
+        LoginUseCase()
+    }
 
     private val viewState: MutableLiveData<LoginViewState> = MutableLiveData()
     val state: LiveData<LoginViewState> = viewState
@@ -18,6 +26,16 @@ class LoginViewModel: ViewModel() {
         if (email.isEmpty() || password.isEmpty()) {
             viewState.value = LoginViewState.ShowEmailPasswordError
         } else if(email.contains("@") && email.contains(".com")) {
+            viewModelScope.launch {
+                val isSuccess = useCase.verificarUser(
+                    password = password,
+                    email = email,
+                )
+                if (isSuccess) {
+                    viewState.value = LoginViewState.ShowHomeScreen
+                }
+            }
+
             viewState.value = LoginViewState.ShowHomeScreen
         } else {
             viewState.value = LoginViewState.ShowEmailError
