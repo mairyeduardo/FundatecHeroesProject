@@ -7,7 +7,7 @@ import android.os.Handler
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.fundatecheroes.R
+import com.example.fundatecheroes.*
 import com.example.fundatecheroes.databinding.ActivityLoginBinding
 import com.example.fundatecheroes.home.view.HomeActivity
 import com.example.fundatecheroes.login.presentation.LoginViewModel
@@ -42,16 +42,30 @@ class LoginActivity : AppCompatActivity() {
         }
         loginViewModel.state.observe(this) {
             when(it) {
-                LoginViewState.ShowEmailError -> chamarMensagemErro()
+                LoginViewState.ShowEmailError ->
+                    binding.loginEmail.showError(R.string.app_mensagem_erroEmailLogin)
+
+                LoginViewState.ShowPasswordError ->
+                    binding.loginSenha.showError(R.string.app_mensagem_erroPasswordLogin)
+
                 LoginViewState.ShowHomeScreen -> chamarTelaHome()
-                LoginViewState.ShowEmailPasswordError -> chamarMensagemErro()
+
+                LoginViewState.ShowEmailPasswordError -> showSnackBar(
+                    binding.root,
+                    R.string.app_mensagem_erroLogin,
+                    R.color.fundoHeroVermelho
+                )
             }
         }
 
     }
 
     private fun chamarTelaHome() {
-        chamarMensagemSucesso()
+        showSnackBar(
+            binding.root,
+            R.string.app_mensagem_sucessoLogin,
+            R.color.fundoHeroVerdeSucesso
+        )
         val handle = Handler()
         handle.postDelayed({
             val intent = Intent(this@LoginActivity, HomeActivity::class.java)
@@ -70,43 +84,5 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this@LoginActivity, ProfileActivity::class.java )
         startActivity(intent)
     }
-
-    private fun chamarMensagemSucesso() {
-        Snackbar.make(
-            binding.root,
-            R.string.app_mensagem_sucessoLogin,
-            Snackbar.LENGTH_SHORT
-        )
-            .setActionTextColor(
-                ColorStateList.valueOf(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.white
-                    )
-                )
-            )
-            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVerdeSucesso))
-            .show()
-    }
-
-    private fun chamarMensagemErro() {
-        Snackbar.make(
-            binding.root,
-            R.string.app_mensagem_erroLogin,
-            Snackbar.LENGTH_SHORT
-        )
-            .setActionTextColor(
-                ColorStateList.valueOf(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.white
-                    )
-                )
-            )
-            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
-            .show()
-    }
-
-
 }
 

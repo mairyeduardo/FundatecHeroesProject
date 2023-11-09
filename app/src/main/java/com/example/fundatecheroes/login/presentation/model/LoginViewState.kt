@@ -6,5 +6,6 @@ sealed class LoginViewState {
 
     object ShowEmailError: LoginViewState()
 
+    object ShowPasswordError: LoginViewState()
     object ShowHomeScreen: LoginViewState()
 }

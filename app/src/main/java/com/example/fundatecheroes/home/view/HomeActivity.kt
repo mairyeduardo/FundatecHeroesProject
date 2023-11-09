@@ -23,12 +23,25 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.floatingButtonAdicionarNovo.setOnClickListener{
-            val intent = Intent(this@HomeActivity, CharacterActivity::class.java )
+            teste()
         }
+
 
         binding.rvList.adapter = adapter
         adapter.addList(
             listOf(
+                CharacterModel(
+                    name = "Venom",
+                    image = "https://t.ctcdn.com.br/SBIRTmM0wCfRxC1OZ66Lk4-l7e4=/1024x576/smart/i527727.jpeg"
+                ),
+                CharacterModel(
+                    name = "Venom",
+                    image = "https://t.ctcdn.com.br/SBIRTmM0wCfRxC1OZ66Lk4-l7e4=/1024x576/smart/i527727.jpeg"
+                ),
+                CharacterModel(
+                    name = "Venom",
+                    image = "https://t.ctcdn.com.br/SBIRTmM0wCfRxC1OZ66Lk4-l7e4=/1024x576/smart/i527727.jpeg"
+                ),
                 CharacterModel(
                     name = "Venom",
                     image = "https://t.ctcdn.com.br/SBIRTmM0wCfRxC1OZ66Lk4-l7e4=/1024x576/smart/i527727.jpeg"
@@ -54,6 +67,11 @@ class HomeActivity : AppCompatActivity() {
 
 //        observerState(HomeViewState.HideButton)
 
+    }
+
+    private fun teste() {
+        val intent = Intent(this@HomeActivity, CharacterActivity::class.java )
+        startActivity(intent)
     }
 
 //    override fun onStart() {

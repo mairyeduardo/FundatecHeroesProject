@@ -10,7 +10,7 @@ import com.example.fundatecheroes.login.presentation.model.LoginViewState
 import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
 import kotlinx.coroutines.launch
 
-class LoginViewModel: ViewModel() {
+class LoginViewModel : ViewModel() {
 
     private val useCase by lazy {
         LoginUseCase()
@@ -20,12 +20,19 @@ class LoginViewModel: ViewModel() {
     val state: LiveData<LoginViewState> = viewState
 
     fun validacaoPreenchimento(
-        email:String,
-        password:String
+        email: String,
+        password: String
     ) {
-        if (email.isEmpty() || password.isEmpty()) {
+        if (email.isNullOrBlank() && password.isNullOrBlank()) {
             viewState.value = LoginViewState.ShowEmailPasswordError
-        } else if(email.contains("@") && email.contains(".com")) {
+            return
+        } else if (email.isNullOrBlank()) {
+            viewState.value = LoginViewState.ShowEmailError
+            return
+        } else if (password.isNullOrBlank()) {
+            viewState.value = LoginViewState.ShowPasswordError
+            return
+        } else if (email.contains("@") && email.contains(".com")) {
             viewModelScope.launch {
                 val isSuccess = useCase.verificarUser(
                     password = password,
