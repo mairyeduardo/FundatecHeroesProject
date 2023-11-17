@@ -9,7 +9,7 @@ sealed class ProfileViewState {
     object ShowEmailError: ProfileViewState()
 
     object ShowPasswordError: ProfileViewState()
-    object ShowHomeScreen: ProfileViewState()
+    object ShowLoginScreen: ProfileViewState()
 
 
 }

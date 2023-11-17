@@ -1,21 +1,17 @@
 package com.example.fundatecheroes.profile.view
 
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.Handler
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.example.fundatecheroes.R
 import com.example.fundatecheroes.databinding.ActivityProfileBinding
-import com.example.fundatecheroes.home.view.HomeActivity
+import com.example.fundatecheroes.login.view.LoginActivity
 import com.example.fundatecheroes.profile.presentation.ProfileViewModel
 import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
 import com.example.fundatecheroes.showError
 import com.example.fundatecheroes.showSnackBar
-//import com.example.fundatecheroes.profile.presentation.ProfileViewModel
-import com.google.android.material.snackbar.Snackbar
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -43,7 +39,7 @@ class ProfileActivity : AppCompatActivity() {
                     binding.onboardingEmail.showError(R.string.app_mensagem_erroEmailOnboarding)
                 ProfileViewState.ShowPasswordError ->
                     binding.onboardingSenha.showError(R.string.app_mensagem_erroPasswordOnboarding)
-                ProfileViewState.ShowHomeScreen -> chamarTelaHome()
+                ProfileViewState.ShowLoginScreen -> chamarTelaLogin()
                 ProfileViewState.ShowNameEmailPasswordError -> showSnackBar(
                     binding.root,
                     R.string.app_mensagem_erroGeralCriacao,
@@ -55,7 +51,7 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
-    private fun chamarTelaHome() {
+    private fun chamarTelaLogin() {
         showSnackBar(
             binding.root,
             R.string.app_mensagem_sucessoCriacao,
@@ -63,7 +59,7 @@ class ProfileActivity : AppCompatActivity() {
         )
         val handle = Handler()
         handle.postDelayed({
-            val intent = Intent(this@ProfileActivity, HomeActivity::class.java)
+            val intent = Intent(this@ProfileActivity, LoginActivity::class.java)
             startActivity(intent)
         }, 3000)
     }

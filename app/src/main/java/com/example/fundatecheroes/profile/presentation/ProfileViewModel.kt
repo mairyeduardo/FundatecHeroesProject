@@ -54,7 +54,7 @@ class ProfileViewModel: ViewModel() {
                 password = password,
             )
                if (isSuccess) {
-                    viewState.value = ProfileViewState.ShowHomeScreen
+                    viewState.value = ProfileViewState.ShowLoginScreen
                }
             }
         }

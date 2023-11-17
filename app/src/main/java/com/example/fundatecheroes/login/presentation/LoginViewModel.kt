@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fundatecheroes.login.domain.LoginUseCase
 import com.example.fundatecheroes.login.presentation.model.LoginViewState
-import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
@@ -40,13 +39,12 @@ class LoginViewModel : ViewModel() {
                 )
                 if (isSuccess) {
                     viewState.value = LoginViewState.ShowHomeScreen
+                } else {
+                    viewState.value = LoginViewState.ShowError
                 }
             }
-
-            viewState.value = LoginViewState.ShowHomeScreen
         } else {
             viewState.value = LoginViewState.ShowEmailError
         }
-
     }
 }

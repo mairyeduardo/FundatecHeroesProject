@@ -31,6 +31,9 @@ class LoginActivity : AppCompatActivity() {
         configButtonLogin()
         configNovoPorAqui()
 
+        this.applicationContext
+
+
     }
 
     private fun configButtonLogin() {
@@ -53,6 +56,12 @@ class LoginActivity : AppCompatActivity() {
                 LoginViewState.ShowEmailPasswordError -> showSnackBar(
                     binding.root,
                     R.string.app_mensagem_erroLogin,
+                    R.color.fundoHeroVermelho
+                )
+
+                LoginViewState.ShowError -> showSnackBar(
+                    binding.root,
+                    R.string.app_mensagem_erroLoginInvalido,
                     R.color.fundoHeroVermelho
                 )
             }
