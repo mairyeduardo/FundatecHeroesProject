@@ -11,6 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/Theme.FundatecHeroes"
         tools:targetApi="31">
 
@@ -41,6 +42,14 @@
             android:screenOrientation="portrait"
             android:exported="true">
         </activity>
+
+        <activity
+            android:name=".character.view.CharacterActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+        </activity>
+
+
 
     </application>
 

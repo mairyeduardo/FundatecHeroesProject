@@ -1,19 +1,17 @@
 package com.example.fundatecheroes.profile.view
 
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.Handler
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.example.fundatecheroes.R
 import com.example.fundatecheroes.databinding.ActivityProfileBinding
-import com.example.fundatecheroes.home.view.HomeActivity
+import com.example.fundatecheroes.login.view.LoginActivity
 import com.example.fundatecheroes.profile.presentation.ProfileViewModel
 import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
-//import com.example.fundatecheroes.profile.presentation.ProfileViewModel
-import com.google.android.material.snackbar.Snackbar
+import com.example.fundatecheroes.showError
+import com.example.fundatecheroes.showSnackBar
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -35,114 +33,34 @@ class ProfileActivity : AppCompatActivity() {
         }
         profileViewModel.state.observe(this) {
             when (it) {
-                ProfileViewState.ShowNameError -> chamarMensagemErroNome()
-                ProfileViewState.ShowEmailError -> chamarMensagemErroEmail()
-                ProfileViewState.ShowPasswordError -> chamarMensagemErroPassword()
-                ProfileViewState.ShowHomeScreen -> chamarTelaHome()
-                ProfileViewState.ShowNameEmailPasswordError -> chamarMensagemErro()
+                ProfileViewState.ShowNameError ->
+                    binding.onboardingNome.showError(R.string.app_mensagem_erroNomeOnboarding)
+                ProfileViewState.ShowEmailError ->
+                    binding.onboardingEmail.showError(R.string.app_mensagem_erroEmailOnboarding)
+                ProfileViewState.ShowPasswordError ->
+                    binding.onboardingSenha.showError(R.string.app_mensagem_erroPasswordOnboarding)
+                ProfileViewState.ShowLoginScreen -> chamarTelaLogin()
+                ProfileViewState.ShowNameEmailPasswordError -> showSnackBar(
+                    binding.root,
+                    R.string.app_mensagem_erroGeralCriacao,
+                    R.color.fundoHeroVermelho
+                )
 
             }
         }
 
     }
 
-    private fun chamarTelaHome() {
-        chamarMensagemSucesso()
+    private fun chamarTelaLogin() {
+        showSnackBar(
+            binding.root,
+            R.string.app_mensagem_sucessoCriacao,
+            R.color.fundoHeroVerdeSucesso
+        )
         val handle = Handler()
         handle.postDelayed({
-            val intent = Intent(this@ProfileActivity, HomeActivity::class.java)
+            val intent = Intent(this@ProfileActivity, LoginActivity::class.java)
             startActivity(intent)
         }, 3000)
     }
-
-    private fun chamarMensagemSucesso() {
-        Snackbar.make(
-            binding.root,
-            R.string.app_mensagem_sucessoCriacao,
-            Snackbar.LENGTH_SHORT
-        )
-            .setActionTextColor(
-                ColorStateList.valueOf(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.white
-                    )
-                )
-            )
-            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVerdeSucesso))
-            .show()
-    }
-
-
-    private fun chamarMensagemErro() {
-        Snackbar.make(
-            binding.root,
-            R.string.app_mensagem_erroGeralCriacao,
-            Snackbar.LENGTH_SHORT
-        )
-            .setActionTextColor(
-                ColorStateList.valueOf(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.white
-                    )
-                )
-            )
-            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
-            .show()
-    }
-    private fun chamarMensagemErroNome() {
-        Snackbar.make(
-            binding.root,
-            R.string.app_mensagem_erroNomeOnboarding,
-            Snackbar.LENGTH_SHORT
-        )
-            .setActionTextColor(
-                ColorStateList.valueOf(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.white
-                    )
-                )
-            )
-            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
-            .show()
-    }
-
-    private fun chamarMensagemErroEmail() {
-        Snackbar.make(
-            binding.root,
-            R.string.app_mensagem_erroEmailOnboarding,
-            Snackbar.LENGTH_SHORT
-        )
-            .setActionTextColor(
-                ColorStateList.valueOf(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.white
-                    )
-                )
-            )
-            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
-            .show()
-    }
-
-    private fun chamarMensagemErroPassword() {
-        Snackbar.make(
-            binding.root,
-            R.string.app_mensagem_erroPasswordOnboarding,
-            Snackbar.LENGTH_SHORT
-        )
-            .setActionTextColor(
-                ColorStateList.valueOf(
-                    ContextCompat.getColor(
-                        this,
-                        R.color.white
-                    )
-                )
-            )
-            .setBackgroundTint(ContextCompat.getColor(this, R.color.fundoHeroVermelho))
-            .show()
-    }
-
 }
