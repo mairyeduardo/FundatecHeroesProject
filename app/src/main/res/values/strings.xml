@@ -23,6 +23,7 @@
     <string name="app_campo_idade">Idade:</string>
     <string name="app_campo_descricao">Descrição:</string>
     <string name="app_campo_nomePersonagem">Nome do Personagem:</string>
+    <string name="app_campo_urlImagem">Coloque a url da imagem:</string>
 
     <string name="app_texto_novoUsuario">Novo por aqui?</string>
 

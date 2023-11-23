@@ -83,6 +83,16 @@
         app:layout_constraintStart_toStartOf="@+id/pickTime"
         />
 
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_campo_urlImagem"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/spinner_tipo_personagem"
+        app:layout_constraintEnd_toEndOf="@id/spinner_universo_personagem"
+        app:layout_constraintTop_toBottomOf="@id/spinner_tipo_personagem"
+        />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_button_criar"
         android:layout_width="wrap_content"
