@@ -16,7 +16,7 @@ class CharacterUseCase {
         universeType: String,
         characterType: String,
         age: Int,
-        birthday: LocalDateTime
+        birthday: LocalDateTime?
     ): Boolean {
         return repository.createCharacter(
             name = name,

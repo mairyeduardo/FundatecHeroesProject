@@ -27,7 +27,7 @@ class CharacterRepository {
         universeType: String,
         characterType: String,
         age: Int,
-        birthday: LocalDateTime): Boolean {
+        birthday: LocalDateTime?): Boolean {
         return withContext(Dispatchers.IO) {
             try {
                 val response = repository.createCharacter(

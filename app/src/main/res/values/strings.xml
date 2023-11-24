@@ -21,11 +21,23 @@
     <string name="app_campo_senha">Senha:</string>
     <string name="app_campo_nomeUsuario">Nome do usuario:</string>
     <string name="app_campo_idade">Idade:</string>
+    <string name="app_campo_dataNascimento">Nascimento:</string>
     <string name="app_campo_descricao">Descrição:</string>
     <string name="app_campo_nomePersonagem">Nome do Personagem:</string>
     <string name="app_campo_urlImagem">Coloque a url da imagem:</string>
-
     <string name="app_texto_novoUsuario">Novo por aqui?</string>
+
+
+    <string name="app_mensagem_nome_personagem">Erro, insira um nome válido</string>
+    <string name="app_mensagem_descricao_personagem">Erro, insira uma descrição</string>
+    <string name="app_mensagem_url_personagem">Erro, insira uma url válida</string>
+    <string name="app_mensagem_universo_personagem">Erro, selecione um universo válido</string>
+    <string name="app_mensagem_tipo_personagem">Erro, selecione um tipo de personagem</string>
+    <string name="app_mensagem_idade_personagem">Erro, insira a idade do personagem</string>
+    <string name="app_mensagem_data_personagem">Erro, selecione uma data</string>
+    <string name="app_mensagem_erroGenerico_personagem">Erro ao criar, tente novamente</string>
+    <string name="app_mensagem_sucessoCriar_personagem">Personagem criado com sucesso!</string>
+
 
     <string-array name="tipo_personagem">
         <item>Herói</item>

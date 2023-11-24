@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fundatecheroes.character.domain.CharacterUseCase
+import com.example.fundatecheroes.character.presentation.model.CharacterType
 import com.example.fundatecheroes.character.presentation.model.CharacterViewState
+import com.example.fundatecheroes.character.presentation.model.UniverseType
 import com.example.fundatecheroes.login.presentation.model.LoginViewState
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
@@ -24,10 +26,10 @@ class CharacterViewModel : ViewModel() {
         name: String,
         description: String,
         image: String,
-        universeType: String,
-        characterType: String,
-        age: Int,
-        birthday: LocalDateTime
+        universeType: Int,
+        characterType: Int,
+        age: String,
+        birthday: String
     ) {
         if (name.isNullOrBlank()) {
             viewState.value = CharacterViewState.ShowNameError
@@ -38,13 +40,13 @@ class CharacterViewModel : ViewModel() {
         } else if (image.isNullOrBlank()) {
             viewState.value = CharacterViewState.ShowImageError
             return
-        } else if (universeType.isNullOrBlank()) {
+        } else if (universeType == 0) {
             viewState.value = CharacterViewState.ShowUniverseTypeError
             return
-        } else if (characterType.isNullOrBlank()) {
+        } else if (characterType == 0) {
             viewState.value = CharacterViewState.ShowCharacterTypeError
             return
-        } else if (age.toString().isNullOrBlank()) {
+        } else if (age.isNullOrBlank()) {
             viewState.value = CharacterViewState.ShowAgeError
             return
         }
@@ -58,15 +60,15 @@ class CharacterViewModel : ViewModel() {
                     name = name,
                     description = description,
                     image = image,
-                    universeType = universeType,
-                    characterType = characterType,
-                    age = age,
-                    birthday = birthday
+                    universeType = UniverseType.getValueOf(universeType),
+                    characterType = CharacterType.getValueOf(characterType),
+                    age = age.toInt(),
+                    birthday = null
                 )
                 if (isSuccess) {
                     viewState.value = CharacterViewState.ShowHomeScreen
                 } else {
-                    viewState.value = CharacterViewState.ShowError
+                    viewState.value = CharacterViewState.ShowGenericError
                 }
             }
         }

@@ -11,6 +11,6 @@ sealed class CharacterViewState {
     object ShowBirthdayError: CharacterViewState()
     object ShowHomeScreen: CharacterViewState()
 
-    object ShowError: CharacterViewState()
+    object ShowGenericError: CharacterViewState()
 
 }

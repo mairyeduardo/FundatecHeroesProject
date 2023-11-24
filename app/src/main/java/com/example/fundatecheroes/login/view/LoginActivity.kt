@@ -80,7 +80,6 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, HomeActivity::class.java)
             startActivity(intent)
         }, 3000)
-
     }
 
     private fun configNovoPorAqui(){

@@ -50,11 +50,11 @@
         app:layout_constraintEnd_toStartOf="@id/pickTime"
         />
 
-    <Button
+    <EditText
         android:id="@+id/pickTime"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:text="Data"
+        android:hint="@string/app_campo_dataNascimento"
         android:layout_marginTop="10dp"
         android:textColor="@color/fundoHeroBlack"
         app:layout_constraintEnd_toEndOf="@id/editText_campo_descricao"
@@ -84,6 +84,7 @@
         />
 
     <EditText
+        android:id="@+id/editText_campo_url"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/app_campo_urlImagem"
