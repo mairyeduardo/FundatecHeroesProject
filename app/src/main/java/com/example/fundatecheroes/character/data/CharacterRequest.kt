@@ -1,7 +1,9 @@
 package com.example.fundatecheroes.character.data
 
-import java.time.LocalDateTime
+import com.squareup.moshi.JsonClass
+import java.util.Date
 
+@JsonClass(generateAdapter = true)
 data class CharacterRequest (
     val name:String,
     val description: String,
@@ -9,5 +11,5 @@ data class CharacterRequest (
     val universeType: String,
     val characterType: String,
     val age: Int,
-    val birthday: LocalDateTime?
+    val birthday: String?
 )
