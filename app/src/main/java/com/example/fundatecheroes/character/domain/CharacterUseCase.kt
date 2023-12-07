@@ -1,5 +1,6 @@
 package com.example.fundatecheroes.character.domain
 
+import com.example.fundatecheroes.character.data.remote.CharacterResponse
 import com.example.fundatecheroes.character.data.repository.CharacterRepository
 import java.time.LocalDateTime
 
@@ -27,6 +28,10 @@ class CharacterUseCase {
             age = age,
             birthday = birthday
         )
+    }
+
+    suspend fun listCharacter(): List<CharacterResponse> {
+        return repository.listCharacter();
     }
 
 }

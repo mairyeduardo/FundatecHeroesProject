@@ -30,13 +30,4 @@
         android:backgroundTint="@color/fundoHeroVermelho"
         />
 
-    <Button
-        android:id="@+id/bt_test"
-        android:backgroundTint="@color/black"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

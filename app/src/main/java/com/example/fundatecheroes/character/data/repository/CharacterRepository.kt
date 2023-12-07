@@ -2,6 +2,7 @@ package com.example.fundatecheroes.character.data.repository
 
 import android.util.Log
 import com.example.fundatecheroes.character.data.CharacterRequest
+import com.example.fundatecheroes.character.data.remote.CharacterResponse
 import com.example.fundatecheroes.database.FHDatabase
 import com.example.fundatecheroes.login.data.repository.LoginRepository
 import com.example.fundatecheroes.network.RetrofitNetworkClient
@@ -50,5 +51,17 @@ class CharacterRepository {
         }
     }
 
-
+    suspend fun listCharacter(): List<CharacterResponse> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = repository.listCharacter(
+                    idUser = loginRepository.pegarId()
+                )
+                response.body()?: listOf()
+            } catch (ex: Exception) {
+                Log.e("listCharacter", ex.message.toString())
+                listOf();
+            }
+        }
+    }
 }
