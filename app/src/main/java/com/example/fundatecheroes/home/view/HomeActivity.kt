@@ -3,16 +3,13 @@ package com.example.fundatecheroes.home.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toolbar
+import android.util.Log
 import androidx.activity.viewModels
 import com.example.fundatecheroes.R
 import com.example.fundatecheroes.character.view.CharacterActivity
 import com.example.fundatecheroes.databinding.ActivityHomeBinding
-import com.example.fundatecheroes.home.domain.CharacterModel
 import com.example.fundatecheroes.home.presentation.HomeViewModel
 import com.example.fundatecheroes.home.presentation.model.HomeViewState
-import com.example.fundatecheroes.login.presentation.LoginViewModel
 
 class HomeActivity : AppCompatActivity() {
 
@@ -20,7 +17,10 @@ class HomeActivity : AppCompatActivity() {
     private val viewModel: HomeViewModel by viewModels()
 
     private val adapter: CharacterListAdapter by lazy {
-        CharacterListAdapter()
+        CharacterListAdapter() {
+            Log.e("Home Activity", it.toString())
+            chamarTelaDetalhesDoPersonagem()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,4 +59,8 @@ class HomeActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun chamarTelaDetalhesDoPersonagem(){
+        val intent = Intent(this@HomeActivity, CharacterActivity::class.java)
+        startActivity(intent)
+    }
 }
