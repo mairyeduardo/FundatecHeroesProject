@@ -34,8 +34,11 @@ class CharacterListAdapter(
         notifyDataSetChanged()
     }
 
-    fun remove(position: Int) {
+    fun removeAt(position: Int) {
         list.removeAt(position)
-        notifyItemChanged(position)
+        notifyItemRemoved(position)
+    }
+    fun retrieveCharacter(position: Int): CharacterModel {
+        return list[position]
     }
 }

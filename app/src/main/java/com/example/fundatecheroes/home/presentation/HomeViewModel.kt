@@ -26,9 +26,19 @@ class HomeViewModel : ViewModel() {
             val listCharacter = useCase.listCharacter()
             if (listCharacter.isNotEmpty()) {
                 viewState.value = HomeViewState.Success(listCharacter.toModel())
-            }
-            else {
+            } else {
                 viewState.value = HomeViewState.Error("Lista Vazia")
+            }
+        }
+    }
+
+    fun removerPersonagem(characterId: Int) {
+        viewModelScope.launch {
+            val characterDelete = useCase.deleteCharacter(characterId)
+            if(characterDelete) {
+                viewState.value = HomeViewState.CharacterRemove;
+            } else {
+                viewState.value = HomeViewState.Error("Não existe personagem com o id informado.")
             }
         }
     }

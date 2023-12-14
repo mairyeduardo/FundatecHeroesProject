@@ -64,4 +64,18 @@ class CharacterRepository {
             }
         }
     }
+
+    suspend fun removeCharacter(characterId: Int):Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = repository.removeCharacter(
+                    characterId
+                )
+                response.code() == 204
+            } catch (ex: Exception) {
+                Log.e("removeCharacter", ex.message.toString())
+                false
+            }
+        }
+    }
 }

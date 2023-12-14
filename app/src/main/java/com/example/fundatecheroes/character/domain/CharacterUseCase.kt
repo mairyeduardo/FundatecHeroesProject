@@ -30,6 +30,10 @@ class CharacterUseCase {
         )
     }
 
+    suspend fun deleteCharacter(characterId: Int):Boolean {
+        return repository.removeCharacter(characterId);
+    }
+
     suspend fun listCharacter(): List<CharacterResponse> {
         return repository.listCharacter();
     }

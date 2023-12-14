@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.fundatecheroes.R
 import com.example.fundatecheroes.character.view.CharacterActivity
 import com.example.fundatecheroes.databinding.ActivityHomeBinding
 import com.example.fundatecheroes.home.presentation.HomeViewModel
 import com.example.fundatecheroes.home.presentation.model.HomeViewState
+import com.example.fundatecheroes.showSnackBar
 
 class HomeActivity : AppCompatActivity() {
 
@@ -31,14 +34,19 @@ class HomeActivity : AppCompatActivity() {
 
         binding.rvList.adapter = adapter
         viewModel.state.observe(this) {
-            when(it) {
+            when (it) {
                 is HomeViewState.Success ->
                     adapter.addList(
                         it.list
                     )
 
-                HomeViewState.Loading ->
-                {
+                is HomeViewState.CharacterRemove ->
+                    showSnackBar(
+                        binding.root,
+                        R.string.app_mensagem_sucessoRemover_personagem,
+                        R.color.fundoHeroVerdeSucesso)
+
+                HomeViewState.Loading -> {
 
                 }
 
@@ -48,18 +56,31 @@ class HomeActivity : AppCompatActivity() {
 
         }
 
-        binding.floatingButtonAdicionarNovo.setOnClickListener{
+        binding.floatingButtonAdicionarNovo.setOnClickListener {
             chamarTelaCriacaoPersonagem()
         }
-
+        configSwipeToRemove()
     }
 
+    private fun configSwipeToRemove() {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(v: RecyclerView, h: RecyclerView.ViewHolder, t: RecyclerView.ViewHolder) = false
+
+            override fun onSwiped(h: RecyclerView.ViewHolder, dir: Int) {
+                val character = adapter.retrieveCharacter(h.adapterPosition)
+                viewModel.removerPersonagem(character.id)
+                adapter.removeAt(h.adapterPosition)
+            }
+        }).attachToRecyclerView(binding.rvList)
+    }
+
+
     private fun chamarTelaCriacaoPersonagem() {
-        val intent = Intent(this@HomeActivity, CharacterActivity::class.java )
+        val intent = Intent(this@HomeActivity, CharacterActivity::class.java)
         startActivity(intent)
     }
 
-    private fun chamarTelaDetalhesDoPersonagem(){
+    private fun chamarTelaDetalhesDoPersonagem() {
         val intent = Intent(this@HomeActivity, CharacterActivity::class.java)
         startActivity(intent)
     }

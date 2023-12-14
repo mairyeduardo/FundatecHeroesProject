@@ -37,7 +37,7 @@
     <string name="app_mensagem_data_personagem">Erro, selecione uma data</string>
     <string name="app_mensagem_erroGenerico_personagem">Erro ao criar, tente novamente</string>
     <string name="app_mensagem_sucessoCriar_personagem">Personagem criado com sucesso!</string>
-
+    <string name="app_mensagem_sucessoRemover_personagem">Personagem Removido com Sucesso!</string>
 
     <string-array name="tipo_personagem">
         <item>Herói</item>
