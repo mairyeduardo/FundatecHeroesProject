@@ -7,7 +7,10 @@ fun List<CharacterResponse>.toModel(): List<CharacterModel> {
         CharacterModel(
             id = character.id,
             name = character.name,
-            image = character.image
+            image = character.image,
+            description = character.description,
+            date = character.birthday.orEmpty(),
+            age = character.age
         )
     }
 }

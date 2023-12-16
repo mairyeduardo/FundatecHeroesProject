@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fundatecheroes.R
 import com.example.fundatecheroes.character.view.CharacterActivity
+import com.example.fundatecheroes.character.view.CharacterDetailActivity
 import com.example.fundatecheroes.databinding.ActivityHomeBinding
+import com.example.fundatecheroes.home.domain.CharacterModel
 import com.example.fundatecheroes.home.presentation.HomeViewModel
 import com.example.fundatecheroes.home.presentation.model.HomeViewState
 import com.example.fundatecheroes.showSnackBar
@@ -22,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
     private val adapter: CharacterListAdapter by lazy {
         CharacterListAdapter() {
             Log.e("Home Activity", it.toString())
-            chamarTelaDetalhesDoPersonagem()
+            chamarTelaDetalhesDoPersonagem(it)
         }
     }
 
@@ -80,8 +82,9 @@ class HomeActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun chamarTelaDetalhesDoPersonagem() {
-        val intent = Intent(this@HomeActivity, CharacterActivity::class.java)
+    private fun chamarTelaDetalhesDoPersonagem(characterModel: CharacterModel) {
+        val intent = Intent(this@HomeActivity, CharacterDetailActivity::class.java)
+        intent.putExtra("character", characterModel);
         startActivity(intent)
     }
 }

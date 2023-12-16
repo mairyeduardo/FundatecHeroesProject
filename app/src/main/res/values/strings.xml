@@ -39,6 +39,10 @@
     <string name="app_mensagem_sucessoCriar_personagem">Personagem criado com sucesso!</string>
     <string name="app_mensagem_sucessoRemover_personagem">Personagem Removido com Sucesso!</string>
 
+    <string name="character_detail_description">Descrição: %1$s</string>
+    <string name="character_detail_age">Idade: %1$s</string>
+    <string name="character_detail_birthday">Nascimento: %1$s</string>
+
     <string-array name="tipo_personagem">
         <item>Herói</item>
         <item>Vilão</item>
