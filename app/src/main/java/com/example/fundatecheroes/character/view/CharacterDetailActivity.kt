@@ -3,6 +3,7 @@ package com.example.fundatecheroes.character.view
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.fundatecheroes.R
 import com.example.fundatecheroes.databinding.ActivityDetailsCharacterBinding
 import com.example.fundatecheroes.home.domain.CharacterModel
@@ -23,6 +24,9 @@ class CharacterDetailActivity : AppCompatActivity() {
             finish()
             return
         }
+        Glide.with(binding.root.context)
+            .load(character.image)
+            .into(binding.ivCharacter)
         binding.textNomePersonagem.text = character.name
         binding.textDescricaoPersonagem.text = getString(R.string.character_detail_description, character.description)
         binding.textIdadePersonagem.text = getString(R.string.character_detail_age, character.age.toString())
