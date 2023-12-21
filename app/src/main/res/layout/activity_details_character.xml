@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background=""
     android:orientation="vertical">
 
     <ImageView
@@ -16,11 +17,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/viewImagem"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/degrade_fundo_imagem"
         app:layout_constraintBottom_toBottomOf="@+id/iv_character"
         app:layout_constraintTop_toTopOf="@+id/iv_character" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/fundoHeroBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewImagem"/>
 
     <TextView
         android:id="@+id/text_nome_personagem"
@@ -45,13 +54,11 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:text="Descricao"
-        android:textColor="@color/fundoHeroBlack"
+        android:textColor="@color/fundoHeroBranco"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_character"/>
-
-
 
     <TextView
         android:id="@+id/text_idade_personagem"
@@ -59,7 +66,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:text="Idade"
-        android:textColor="@color/fundoHeroBlack"
+        android:textColor="@color/fundoHeroBranco"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +79,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:text="Nascimento"
-        android:textColor="@color/fundoHeroBlack"
+        android:textColor="@color/fundoHeroBranco"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
