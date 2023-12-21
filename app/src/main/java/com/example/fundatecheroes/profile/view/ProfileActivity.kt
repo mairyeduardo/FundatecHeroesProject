@@ -12,6 +12,7 @@ import com.example.fundatecheroes.profile.presentation.ProfileViewModel
 import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
 import com.example.fundatecheroes.showError
 import com.example.fundatecheroes.showSnackBar
+import com.example.fundatecheroes.visible
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -24,6 +25,11 @@ class ProfileActivity : AppCompatActivity() {
         getSupportActionBar()?.hide()
         setContentView(binding.root)
 
+        configurarBotaoCriar()
+
+    }
+
+    private fun configurarBotaoCriar() {
         binding.buttonCriarConta.setOnClickListener {
             profileViewModel.validacaoPreenchimento(
                 binding.onboardingNome.text.toString(),
@@ -35,20 +41,26 @@ class ProfileActivity : AppCompatActivity() {
             when (it) {
                 ProfileViewState.ShowNameError ->
                     binding.onboardingNome.showError(R.string.app_mensagem_erroNomeOnboarding)
+
                 ProfileViewState.ShowEmailError ->
                     binding.onboardingEmail.showError(R.string.app_mensagem_erroEmailOnboarding)
+
                 ProfileViewState.ShowPasswordError ->
                     binding.onboardingSenha.showError(R.string.app_mensagem_erroPasswordOnboarding)
-                ProfileViewState.ShowLoginScreen -> chamarTelaLogin()
+
+                ProfileViewState.ShowLoginScreen ->
+                    chamarTelaLogin()
+
                 ProfileViewState.ShowNameEmailPasswordError -> showSnackBar(
                     binding.root,
                     R.string.app_mensagem_erroGeralCriacao,
                     R.color.fundoHeroVermelho
                 )
 
+                ProfileViewState.ShowLoading -> binding.progressBar.visible()
+
             }
         }
-
     }
 
     private fun chamarTelaLogin() {
