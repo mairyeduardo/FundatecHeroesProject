@@ -53,6 +53,9 @@ class LoginActivity : AppCompatActivity() {
 
                 LoginViewState.ShowHomeScreen -> chamarTelaHome()
 
+                LoginViewState.ShowLoading ->
+                    binding.progressBar.visible()
+
                 LoginViewState.ShowEmailPasswordError -> showSnackBar(
                     binding.root,
                     R.string.app_mensagem_erroLogin,

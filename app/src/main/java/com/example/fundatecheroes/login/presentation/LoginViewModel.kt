@@ -22,6 +22,7 @@ class LoginViewModel : ViewModel() {
         email: String,
         password: String
     ) {
+        viewState.value = LoginViewState.ShowLoading
         if (email.isNullOrBlank() && password.isNullOrBlank()) {
             viewState.value = LoginViewState.ShowEmailPasswordError
             return

@@ -87,4 +87,10 @@ class HomeActivity : AppCompatActivity() {
         intent.putExtra("character", characterModel);
         startActivity(intent)
     }
+
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
+    }
+
 }
