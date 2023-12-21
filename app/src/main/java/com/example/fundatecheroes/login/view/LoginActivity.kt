@@ -53,6 +53,12 @@ class LoginActivity : AppCompatActivity() {
 
                 LoginViewState.ShowHomeScreen -> chamarTelaHome()
 
+                LoginViewState.ShowLoading ->
+                    binding.progressBar.visible()
+
+                LoginViewState.StopLoading ->
+                    binding.progressBar.gone()
+
                 LoginViewState.ShowEmailPasswordError -> showSnackBar(
                     binding.root,
                     R.string.app_mensagem_erroLogin,
@@ -79,8 +85,8 @@ class LoginActivity : AppCompatActivity() {
         handle.postDelayed({
             val intent = Intent(this@LoginActivity, HomeActivity::class.java)
             startActivity(intent)
+            finish()
         }, 3000)
-
     }
 
     private fun configNovoPorAqui(){

@@ -20,6 +20,8 @@ class LoginRepository {
         FHDatabase.getInstance()
     }
 
+
+
     suspend fun createUser(name: String, email: String, password: String): Boolean {
         return withContext(Dispatchers.IO) {
             try {
@@ -75,6 +77,12 @@ class LoginRepository {
     suspend fun clearDateCache() {
         return withContext(Dispatchers.IO) {
             database.userDao().clearCache()
+        }
+    }
+
+    suspend fun pegarId(): Int {
+        return withContext(Dispatchers.IO) {
+            database.userDao().pegarId()
         }
     }
 }

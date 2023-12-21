@@ -29,6 +29,7 @@ class ProfileViewModel: ViewModel() {
         email: String,
         password: String
     ) {
+        viewState.value = ProfileViewState.ShowLoading
         if (name.isNullOrBlank() && email.isNullOrBlank() && password.isNullOrBlank()) {
             viewState.value = ProfileViewState.ShowNameEmailPasswordError
             return
@@ -61,6 +62,7 @@ class ProfileViewModel: ViewModel() {
         else {
             viewState.value = ProfileViewState.ShowEmailError
         }
+        viewState.value = ProfileViewState.StopLoading
     }
 
 

@@ -7,7 +7,8 @@ import com.example.fundatecheroes.home.domain.CharacterModel
 import com.bumptech.glide.Glide
 
 class CharacterViewHolder(
-    private val binding: CharacterListItemBinding
+    private val binding: CharacterListItemBinding,
+    private val click: (CharacterModel) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(character: CharacterModel) {
@@ -16,8 +17,8 @@ class CharacterViewHolder(
             .into(binding.ivCharacter)
         binding.tvName.text = character.name
 
-        binding.tvName.setOnClickListener {
-            binding.ivCharacter.gone()
+        binding.constraintLayout.setOnClickListener {
+            click(character)
         }
 
     }

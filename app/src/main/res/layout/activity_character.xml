@@ -50,11 +50,11 @@
         app:layout_constraintEnd_toStartOf="@id/pickTime"
         />
 
-    <Button
+    <EditText
         android:id="@+id/pickTime"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:text="Data"
+        android:hint="@string/app_campo_dataNascimento"
         android:layout_marginTop="10dp"
         android:textColor="@color/fundoHeroBlack"
         app:layout_constraintEnd_toEndOf="@id/editText_campo_descricao"
@@ -83,6 +83,17 @@
         app:layout_constraintStart_toStartOf="@+id/pickTime"
         />
 
+    <EditText
+        android:id="@+id/editText_campo_url"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_campo_urlImagem"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/spinner_tipo_personagem"
+        app:layout_constraintEnd_toEndOf="@id/spinner_universo_personagem"
+        app:layout_constraintTop_toBottomOf="@id/spinner_tipo_personagem"
+        />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_button_criar"
         android:layout_width="wrap_content"
@@ -95,5 +106,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/fundoHeroVermelho"
         />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
