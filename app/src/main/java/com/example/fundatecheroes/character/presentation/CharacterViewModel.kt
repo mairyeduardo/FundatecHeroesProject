@@ -31,45 +31,45 @@ class CharacterViewModel : ViewModel() {
         age: String,
         birthday: String
     ) {
-        if (name.isNullOrBlank()) {
-            viewState.value = CharacterViewState.ShowNameError
-            return
-        } else if (description.isNullOrBlank()) {
-            viewState.value = CharacterViewState.ShowDescriptionError
-            return
-        } else if (image.isNullOrBlank()) {
-            viewState.value = CharacterViewState.ShowImageError
-            return
-        } else if (universeType == 0) {
-            viewState.value = CharacterViewState.ShowUniverseTypeError
-            return
-        } else if (characterType == 0) {
-            viewState.value = CharacterViewState.ShowCharacterTypeError
-            return
-        } else if (age.isNullOrBlank()) {
-            viewState.value = CharacterViewState.ShowAgeError
-            return
-        }
-//        else if (birthday.toString().isNullOrBlank()) {
-//            viewState.value = CharacterViewState.ShowBirthdayError
-//            return
-//        }
-            else {
-            viewModelScope.launch {
-                val isSuccess = useCase.createCharacter(
-                    name = name,
-                    description = description,
-                    image = image,
-                    universeType = UniverseType.getValueOf(universeType),
-                    characterType = CharacterType.getValueOf(characterType),
-                    age = age.toInt(),
-                    birthday = null
-                )
-                if (isSuccess) {
-                    viewState.value = CharacterViewState.ShowHomeScreen
-                } else {
-                    viewState.value = CharacterViewState.ShowGenericError
+        when {
+            (name.isNullOrBlank()) -> {
+                viewState.value = CharacterViewState.ShowNameError
+            }
+            (description.isNullOrBlank()) -> {
+                viewState.value = CharacterViewState.ShowDescriptionError
+            }
+            (image.isNullOrBlank()) -> {
+                viewState.value = CharacterViewState.ShowImageError
+            }
+            (universeType == 0) -> {
+                viewState.value = CharacterViewState.ShowUniverseTypeError
+            }
+            (characterType == 0) -> {
+                viewState.value = CharacterViewState.ShowCharacterTypeError
+            }
+            (age.isNullOrBlank()) -> {
+                viewState.value = CharacterViewState.ShowAgeError
+            }
+            else -> {
+                viewState.value = CharacterViewState.ShowLoading
+                viewModelScope.launch {
+                    val isSuccess = useCase.createCharacter(
+                        name = name,
+                        description = description,
+                        image = image,
+                        universeType = UniverseType.getValueOf(universeType),
+                        characterType = CharacterType.getValueOf(characterType),
+                        age = age.toInt(),
+                        birthday = null
+                    )
+                    if (isSuccess) {
+                        viewState.value = CharacterViewState.ShowHomeScreen
+                    } else {
+                        viewState.value = CharacterViewState.ShowGenericError
+                    }
+                    viewState.value = CharacterViewState.StopLoading
                 }
+
             }
         }
     }

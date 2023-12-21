@@ -11,10 +11,12 @@ import com.example.fundatecheroes.R
 import com.example.fundatecheroes.character.view.CharacterActivity
 import com.example.fundatecheroes.character.view.CharacterDetailActivity
 import com.example.fundatecheroes.databinding.ActivityHomeBinding
+import com.example.fundatecheroes.gone
 import com.example.fundatecheroes.home.domain.CharacterModel
 import com.example.fundatecheroes.home.presentation.HomeViewModel
 import com.example.fundatecheroes.home.presentation.model.HomeViewState
 import com.example.fundatecheroes.showSnackBar
+import com.example.fundatecheroes.visible
 
 class HomeActivity : AppCompatActivity() {
 
@@ -48,8 +50,12 @@ class HomeActivity : AppCompatActivity() {
                         R.string.app_mensagem_sucessoRemover_personagem,
                         R.color.fundoHeroVerdeSucesso)
 
-                HomeViewState.Loading -> {
+                HomeViewState.ShowLoading -> {
+                    binding.progressBar.visible()
+                }
 
+                HomeViewState.StopLoading -> {
+                    binding.progressBar.gone()
                 }
 
                 is HomeViewState.Error ->

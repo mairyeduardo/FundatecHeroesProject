@@ -7,7 +7,7 @@ sealed class LoginViewState {
     object ShowEmailError: LoginViewState()
 
     object ShowLoading: LoginViewState()
-
+    object StopLoading: LoginViewState()
     object ShowError: LoginViewState()
 
     object ShowPasswordError: LoginViewState()

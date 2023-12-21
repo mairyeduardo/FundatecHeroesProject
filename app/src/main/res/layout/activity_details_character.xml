@@ -42,8 +42,9 @@
     <TextView
         android:id="@+id/text_descricao_personagem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="descricao"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Descricao"
         android:textColor="@color/fundoHeroBlack"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,8 +55,9 @@
 
     <TextView
         android:id="@+id/text_idade_personagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:text="Idade"
         android:textColor="@color/fundoHeroBlack"
         android:textSize="25sp"
@@ -66,8 +68,9 @@
 
     <TextView
         android:id="@+id/text_nascimento_personagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:text="Nascimento"
         android:textColor="@color/fundoHeroBlack"
         android:textSize="25sp"

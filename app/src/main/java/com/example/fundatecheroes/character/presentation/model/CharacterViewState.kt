@@ -2,6 +2,8 @@ package com.example.fundatecheroes.character.presentation.model
 
 sealed class CharacterViewState {
 
+    object ShowLoading: CharacterViewState()
+    object StopLoading: CharacterViewState()
     object ShowNameError: CharacterViewState()
     object ShowDescriptionError: CharacterViewState()
     object ShowImageError: CharacterViewState()

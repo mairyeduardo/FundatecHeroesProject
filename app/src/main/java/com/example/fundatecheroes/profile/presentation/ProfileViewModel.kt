@@ -62,6 +62,7 @@ class ProfileViewModel: ViewModel() {
         else {
             viewState.value = ProfileViewState.ShowEmailError
         }
+        viewState.value = ProfileViewState.StopLoading
     }
 
 

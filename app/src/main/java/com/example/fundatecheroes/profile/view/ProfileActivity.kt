@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fundatecheroes.R
+import com.example.fundatecheroes.*
 import com.example.fundatecheroes.databinding.ActivityProfileBinding
 import com.example.fundatecheroes.login.view.LoginActivity
 import com.example.fundatecheroes.profile.presentation.ProfileViewModel
 import com.example.fundatecheroes.profile.presentation.model.ProfileViewState
-import com.example.fundatecheroes.showError
-import com.example.fundatecheroes.showSnackBar
-import com.example.fundatecheroes.visible
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -57,8 +54,11 @@ class ProfileActivity : AppCompatActivity() {
                     R.color.fundoHeroVermelho
                 )
 
-                ProfileViewState.ShowLoading -> binding.progressBar.visible()
+                ProfileViewState.ShowLoading ->
+                    binding.progressBar.visible()
 
+                ProfileViewState.StopLoading ->
+                    binding.progressBar.gone()
             }
         }
     }

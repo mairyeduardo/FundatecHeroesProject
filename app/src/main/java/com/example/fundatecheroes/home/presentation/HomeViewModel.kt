@@ -22,6 +22,7 @@ class HomeViewModel : ViewModel() {
     val state: LiveData<HomeViewState> = viewState
 
     private fun buscarInformacoes() {
+        viewState.value = HomeViewState.ShowLoading
         viewModelScope.launch {
             val listCharacter = useCase.listCharacter()
             if (listCharacter.isNotEmpty()) {
@@ -29,10 +30,12 @@ class HomeViewModel : ViewModel() {
             } else {
                 viewState.value = HomeViewState.Error("Lista Vazia")
             }
+            viewState.value = HomeViewState.StopLoading
         }
     }
 
     fun removerPersonagem(characterId: Int) {
+        viewState.value = HomeViewState.ShowLoading
         viewModelScope.launch {
             val characterDelete = useCase.deleteCharacter(characterId)
             if(characterDelete) {
@@ -40,6 +43,7 @@ class HomeViewModel : ViewModel() {
             } else {
                 viewState.value = HomeViewState.Error("Não existe personagem com o id informado.")
             }
+            viewState.value = HomeViewState.StopLoading
         }
     }
 

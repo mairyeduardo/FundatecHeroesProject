@@ -22,30 +22,32 @@ class LoginViewModel : ViewModel() {
         email: String,
         password: String
     ) {
-        viewState.value = LoginViewState.ShowLoading
-        if (email.isNullOrBlank() && password.isNullOrBlank()) {
-            viewState.value = LoginViewState.ShowEmailPasswordError
-            return
-        } else if (email.isNullOrBlank()) {
-            viewState.value = LoginViewState.ShowEmailError
-            return
-        } else if (password.isNullOrBlank()) {
-            viewState.value = LoginViewState.ShowPasswordError
-            return
-        } else if (email.contains("@") && email.contains(".com")) {
-            viewModelScope.launch {
-                val isSuccess = useCase.verificarUser(
-                    password = password,
-                    email = email,
-                )
-                if (isSuccess) {
-                    viewState.value = LoginViewState.ShowHomeScreen
-                } else {
-                    viewState.value = LoginViewState.ShowError
+        when {
+            (email.isNullOrBlank() && password.isNullOrBlank()) -> {
+                viewState.value = LoginViewState.ShowEmailPasswordError
+            }
+            (email.isNullOrBlank()) -> {
+                viewState.value = LoginViewState.ShowEmailError
+            }
+            (password.isNullOrBlank()) -> {
+                viewState.value = LoginViewState.ShowPasswordError
+            }
+            (email.contains("@") && email.contains(".com")) -> {
+                viewState.value = LoginViewState.ShowLoading
+
+                viewModelScope.launch {
+                    val isSuccess = useCase.verificarUser(
+                        password = password,
+                        email = email,
+                    )
+                    if (isSuccess) {
+                        viewState.value = LoginViewState.ShowHomeScreen
+                    } else {
+                        viewState.value = LoginViewState.ShowError
+                    }
+                    viewState.value = LoginViewState.StopLoading
                 }
             }
-        } else {
-            viewState.value = LoginViewState.ShowEmailError
         }
     }
 }

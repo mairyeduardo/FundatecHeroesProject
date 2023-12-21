@@ -8,13 +8,11 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fundatecheroes.R
+import com.example.fundatecheroes.*
 import com.example.fundatecheroes.character.presentation.CharacterViewModel
 import com.example.fundatecheroes.character.presentation.model.CharacterViewState
 import com.example.fundatecheroes.databinding.ActivityCharacterBinding
 import com.example.fundatecheroes.home.view.HomeActivity
-import com.example.fundatecheroes.showError
-import com.example.fundatecheroes.showSnackBar
 
 private const val DELAY_TELA = 3000L
 
@@ -53,6 +51,12 @@ class CharacterActivity: AppCompatActivity() {
         }
         characterViewModel.state.observe(this) {
             when(it) {
+
+                CharacterViewState.ShowLoading ->
+                    binding.progressBar.visible()
+
+                CharacterViewState.StopLoading ->
+                    binding.progressBar.gone()
 
                 CharacterViewState.ShowNameError ->
                     binding.editTextCampoNome.showError(R.string.app_mensagem_nome_personagem)

@@ -56,6 +56,9 @@ class LoginActivity : AppCompatActivity() {
                 LoginViewState.ShowLoading ->
                     binding.progressBar.visible()
 
+                LoginViewState.StopLoading ->
+                    binding.progressBar.gone()
+
                 LoginViewState.ShowEmailPasswordError -> showSnackBar(
                     binding.root,
                     R.string.app_mensagem_erroLogin,
