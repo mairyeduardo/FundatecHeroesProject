@@ -1,5 +1,5 @@
 # LinguagemProgramacaoIV
-EsteProjeto de Linguagem de Programação IV
+Projeto de Linguagem de Programação IV
 Este projeto tem como objetivo a criação de um aplicativo ( FrontEnd ) que possibilite a criação de super herois e vilões. 
 
 O app atualmente possui as seguintes funcionalidades: 
